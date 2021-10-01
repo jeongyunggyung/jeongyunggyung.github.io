@@ -4,7 +4,7 @@ $(function(){
 
 
 $("#myWeb").fullpage({
-    anchors:['m01', 'm02', 'm03', 'm04', 'm05', 'm06', 'm07', 'm08','m09'],
+    anchors:['m01', 'm02', 'm03', 'm04', 'm05', 'm06', 'm07', 'm08'],
 	//navigation: true,
     afterLoad: function(origin, destination, direction){
         //console.log(destination.index);
@@ -14,15 +14,15 @@ $("#myWeb").fullpage({
     },
 });
 
-$("#intro").YTPlayer({
-    videoURL:'x1yWCGyoeJ4',
-    containment:'.m01',
-    autoPlay:true, 
-    mute:true, 
-    showControls: false,
-    playOnlyIfVisible: true,
-    useOnMobile: true,
-});
+//////$("#intro").YTPlayer({
+  //  videoURL:'x1yWCGyoeJ4',
+ //   containment:'.m01',
+  //  autoPlay:true, 
+  //  mute:true, 
+ //   showControls: false,
+ //   playOnlyIfVisible: true,
+  //  useOnMobile: true,
+//});
 
 //포플동영상제어
 $("#portfolio01").YTPlayer({
@@ -128,4 +128,29 @@ $("#full i,#full a").on("click", function(){
     $("#full").removeClass("on")
 });
 ////////////////end///////////////
+
 });
+
+
+(function( $ ) {
+    "use strict";
+    $(function() {
+        function animated_contents() {
+            $(".zt-skill-bar > div ").each(function (i) {
+                var $this  = $(this),
+                    skills = $this.data('width');
+ 
+                $this.css({'width' : skills + '%'});
+ 
+            });
+        }
+        
+        if(jQuery().appear) {
+            $('.zt-skill-bar').appear().on('appear', function() {
+                animated_contents();
+            });
+        } else {
+            animated_contents();
+        }
+    });
+}(jQuery));
